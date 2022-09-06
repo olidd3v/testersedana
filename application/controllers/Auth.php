@@ -61,6 +61,6 @@ class Auth extends MY_Controller {
 	function logout(){
 		$this->auth_model->unset_session();
 		$this->auth_model->unset_cookie_remember();
-		redirect(site_url());
+		redirect(site_url('auth/login'));
 	}
 }

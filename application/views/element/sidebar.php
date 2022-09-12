@@ -9,7 +9,6 @@
           </ul>
           </li>
         </li>
-        <li class="<?php echo is_menu('setting','edit/1');?>"><a href="<?php echo site_url('setting/edit/1');?>"><i class="fa fa-gear" aria-hidden="true"></i> <span>Setting</span></a></li>
       </ul>
       <br />
       <br />

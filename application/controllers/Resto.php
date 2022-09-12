@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Resto extends MY_Controller {
 	function __construct(){
         parent::__construct();
-				$this->load->model('resto_model');
-				$this->load->model('setting_model');
-				$this->load->model('user_model');
+		$this->load->model('resto_model');
+		$this->load->model('setting_model');
+		$this->load->model('user_model');
         $this->load->library('form_validation');
 		
 		// Check Session Login
@@ -64,18 +64,19 @@ class Resto extends MY_Controller {
 	}
 
 	public function save($id = ''){
-		if (empty($id)){
-		$this->form_validation->set_rules('resto_id', 'ID', 'trim|required|is_unique[resto.code_resto]');
-		}else{
-		$this->form_validation->set_rules('resto_id', 'ID', 'required');
-		}
+		// if (empty($id)){
+		// $this->form_validation->set_rules('resto_id', 'ID', 'trim|required|is_unique[resto.code_resto]');
+		// }else{
+		// $this->form_validation->set_rules('resto_id', 'ID', 'required');
+		// }
+		$this->form_validation->set_rules('code_resto', 'ID', 'required');
 
 		$this->form_validation->set_rules('name_resto', 'Nama', 'required');
 		$this->form_validation->set_rules('address_resto', 'Adress', 'required');
 		$this->form_validation->set_rules('city_resto', 'City', 'required');
 		$this->form_validation->set_rules('phone_resto', 'City', 'required');
 
-		$data['code_resto'] = escape($this->input->post('resto_id'));
+		$data['code_resto'] = escape($this->input->post('code_resto'));
 		$data['name_resto'] = escape($this->input->post('name_resto'));
 		$data['address_resto'] = escape($this->input->post('address_resto'));
 		$data['city_resto'] = escape($this->input->post('city_resto'));

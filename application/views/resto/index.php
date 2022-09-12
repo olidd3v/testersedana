@@ -66,7 +66,7 @@
 					  <td><?php echo $resto->address_resto;?></td>
 					  <td>
 						<a href="<?php echo site_url('resto/edit').'/'.$resto->id;?>" class="btn btn-xs btn-primary">Edit</a>
-						<a onclick="return confirm('Are you sure you want to delete this resto?');" href="<?php echo site_url('resto/delete').'/'.$resto->id;?>" class="btn btn-xs btn-danger">Delete</a>
+						<button type="submit" class="btn btn-xs btn-danger delete-soon" id="<?php echo $resto->id;?>">Delete</button>
 					  </td>
 					</tr>
 				  <?php } ?>

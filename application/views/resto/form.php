@@ -33,29 +33,28 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <?php if(!empty($resto)){?>
-            <form class="form-horizontal" method="POST" action="<?php echo site_url('resto/save').'/'.$resto['id'];?>">
-            <?php }else{?>
-            <form class="form-horizontal" method="POST" action="<?php echo site_url('resto/save');?>">
-            <?php } ?>
+            <form class="form-horizontal" method="POST">
               <div class="box-body">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="col-sm-4 control-label" for="kode">Code</label>
                     <div class="col-sm-8">
-                      <input type="text" value="<?php echo !empty($resto) ? $resto['code_resto'] : '';?>" id="resto_id" name="resto_id" class="form-control" placeholder="Code"/>
+                    <?php if(!empty($resto)){?>
+                      <input type="hidden" value="<?php echo $resto['id']; ?>" id="id" name="id">
+                    <?php } ?>
+                      <input type="text" value="<?php echo !empty($resto) ? $resto['code_resto'] : '';?>" id="code_resto" name="code_resto" class="form-control" placeholder="Code"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-4 control-label" for="name">Name</label>
                     <div class="col-sm-8">
-                      <input type="text" value="<?php echo !empty($resto) ? $resto['name_resto'] : '';?>" name="name_resto" placeholder="Resto Name" id="name" class="form-control" required/>
+                      <input type="text" value="<?php echo !empty($resto) ? $resto['name_resto'] : '';?>" name="name_resto" placeholder="Resto Name" id="name_resto" class="form-control" required/>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-4 control-label" for="address">Address</label>
                     <div class="col-sm-8">
-                      <textarea name="address_resto" placeholder="Address" id="address" class="form-control"/><?php echo !empty($resto) ? $resto['address_resto'] : '';?></textarea>
+                      <textarea name="address_resto" placeholder="Address" id="address_resto" class="form-control"/><?php echo !empty($resto) ? $resto['address_resto'] : '';?></textarea>
                     </div>
                   </div>
                 </div>
@@ -63,13 +62,13 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label" for="city">City</label>
                     <div class="col-sm-8">
-                      <input type="text" value="<?php echo !empty($resto) ? $resto['city_resto'] : '';?>" name="city_resto" placeholder="City" id="city" class="form-control"/>
+                      <input type="text" value="<?php echo !empty($resto) ? $resto['city_resto'] : '';?>" name="city_resto" placeholder="City" id="city_resto" class="form-control"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-4 control-label" for="phone">No Telp</label>
                     <div class="col-sm-8">
-                      <input type="number" value="<?php echo !empty($resto) ? $resto['phone_resto'] : '';?>" name="phone_resto" placeholder="Phone" id="phone" class="form-control"/>
+                      <input type="number" value="<?php echo !empty($resto) ? $resto['phone_resto'] : '';?>" name="phone_resto" placeholder="Phone" id="phone_resto" class="form-control"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -93,7 +92,11 @@
               <div class="box-footer">
                 <div class="col-md-3 col-md-offset-4">
                   <a class="btn btn-default" href="<?php echo site_url('resto');?>">Cancel</a>
-                  <button class="btn btn-info pull-right" type="submit">Save</button>
+                  <?php if(!empty($resto)){?>
+                  <button class="btn btn-info pull-right" type="button" id="submit-update-resto">Update</button>
+                  <?php } else {?>
+                  <button class="btn btn-info pull-right" type="button" id="submit-insert-resto">Save</button>
+                  <?php } ?>
                 </div>
               </div>
               <!-- /.box-footer -->

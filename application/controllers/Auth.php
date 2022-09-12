@@ -39,7 +39,7 @@ class Auth extends MY_Controller {
 			redirect(site_url());
 		}
 		$username = escape($this->input->post("username"));		
-		$password = md5(escape($this->input->post("password")));
+		$password = escape($this->input->post("password"));
 		$remember_me = escape($this->input->post("remember_me"));	
 		if($username && $password){
 			$check_login = $this->auth_model->check_login($username,$password);	
@@ -51,8 +51,10 @@ class Auth extends MY_Controller {
 				$this->auth_model->set_cookie_remember($username);
 			}
 			$this->session->set_flashdata('msg', 'Selamat Datang');
+			return true;
 			redirect(site_url('resto'));
 		}else{
+			return false;
 			$this->session->set_flashdata('login_false', 'Username atau Password salah.');
 			redirect(site_url('auth/login'));
 		}

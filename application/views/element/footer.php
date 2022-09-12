@@ -52,6 +52,11 @@
 		<!-- main JS -->
 		<script src="<?php echo base_url('public');?>/js/re-13-main.js"></script>
 		<script src="<?php echo base_url('public');?>/js/add_item_3.js"></script>
+		<script src="<?php echo base_url('public');?>/js/jquery_sedana.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+
 		<script>
 		  $(function () {
 			$('input').iCheck({

@@ -19,14 +19,13 @@
 			<?php echo $this->session->flashdata('login_false');?>
 		</div>
 	<?php } ?>
-    
-	<form action="<?php echo site_url('auth/login_process');?>" method="post">
+	<form method="post">
       <div class="form-group has-feedback">
-        <input type="text" name="username" class="form-control" placeholder="Username">
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" name="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -39,7 +38,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <div id="login" class="btn btn-primary btn-block btn-flat">Sign In</div>
         </div>
         <!-- /.col -->
       </div>

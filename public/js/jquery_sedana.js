@@ -157,6 +157,8 @@
                         title: 'Data has been insert!',
                         showConfirmButton: false,
                         timer: 1500
+                    }).then(function(){
+                        window.location = $("base").attr("url")+'resto'
                     });
                 }  else {
                     Swal.fire({
